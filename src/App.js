@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const App = () => {
   return (
     <div>
-      <h1>React app</h1>
+      <h1 className="text-7xl text-primary">React app</h1>
     </div>
   );
 };
