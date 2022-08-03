@@ -38,7 +38,37 @@ const HouseContextProvider = ({ children }) => {
   }, [houses]);
 
   const handleClick = () => {
-    console.log("Clicked");
+    setLoading(true);
+    // check the string if includes '(any)'
+    const isDefault = (str) => {
+      return str.split(' ').includes('(any)');
+    };
+
+    // get first string (price) and parse it to number
+    const minPrice = parseInt(price.split(' ')[0]);
+    // get last string (price) and parse it to number
+    const maxPrice = parseInt(price.split(' ')[2]);
+
+    const newHouses = housesData.filter((house) => {
+      const housePrice = parseInt(house.price);
+
+      // all values are selected
+      if (
+        house.country === country &&
+        house.type === property &&
+        housePrice >= minPrice &&
+        housePrice <= maxPrice
+      ) {
+        return house;
+      }
+    });
+    
+    setTimeout(() => {
+      return (
+        newHouses.length < 1 ? setHouses([]) : setHouses(newHouses),
+        setLoading(false)
+      );
+    }, 1000);
   };
 
   return (
