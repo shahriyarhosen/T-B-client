@@ -51,7 +51,7 @@ const HouseContextProvider = ({ children }) => {
 
     const newHouses = housesData.filter((house) => {
       const housePrice = parseInt(house.price);
-
+      
       // all values are selected
       if (
         house.country === country &&
@@ -59,6 +59,10 @@ const HouseContextProvider = ({ children }) => {
         housePrice >= minPrice &&
         housePrice <= maxPrice
       ) {
+        return house;
+      }
+      // 
+      if (isDefault(country) && isDefault(property) && isDefault(price)) {
         return house;
       }
     });
