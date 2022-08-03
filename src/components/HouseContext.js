@@ -10,7 +10,7 @@ const HouseContextProvider = ({ children }) => {
   const [houses, setHouses] = useState(housesData);
   const [country, setCountry] = useState("Location (any)");
   const [countries, setCountries] = useState([]);
-  const [property, setProperty] = useState(["Property type (any)"]);
+  const [property, setProperty] = useState("Property type (any)");
   const [properties, setProperties] = useState([]);
   const [price, setPrice] = useState("Price range (any)");
   const [loading, setLoading] = useState(false);
@@ -24,7 +24,7 @@ const HouseContextProvider = ({ children }) => {
     const uniqueCountries = ["Location (any)", ...new Set(allCountries)];
     // set Countries
     setCountries(uniqueCountries);
-  }, [houses]);
+  }, []);
 
   // return all Properties
   useEffect(() => {
@@ -35,23 +35,23 @@ const HouseContextProvider = ({ children }) => {
     const uniqueProperties = ["Location (any)", ...new Set(allProperties)];
     // set Countries
     setProperties(uniqueProperties);
-  }, [houses]);
+  }, []);
 
   const handleClick = () => {
     setLoading(true);
     // check the string if includes '(any)'
     const isDefault = (str) => {
-      return str.split(' ').includes('(any)');
+      return str.split(" ").includes("(any)");
     };
 
     // get first string (price) and parse it to number
-    const minPrice = parseInt(price.split(' ')[0]);
+    const minPrice = parseInt(price.split(" ")[0]);
     // get last string (price) and parse it to number
-    const maxPrice = parseInt(price.split(' ')[2]);
+    const maxPrice = parseInt(price.split(" ")[2]);
 
     const newHouses = housesData.filter((house) => {
       const housePrice = parseInt(house.price);
-      
+
       // all values are selected
       if (
         house.country === country &&
@@ -95,8 +95,9 @@ const HouseContextProvider = ({ children }) => {
           return house.type === property;
         }
       }
+      return [];
     });
-    
+
     setTimeout(() => {
       return (
         newHouses.length < 1 ? setHouses([]) : setHouses(newHouses),
@@ -121,7 +122,7 @@ const HouseContextProvider = ({ children }) => {
         houses,
         setHouses,
         loading,
-        handleClick
+        handleClick,
       }}
     >
       {children}
