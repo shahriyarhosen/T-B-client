@@ -36,7 +36,7 @@ const HouseContextProvider = ({ children }) => {
     // set Countries
     setProperties(uniqueProperties);
   }, []);
-
+  
   const handleClick = () => {
     setLoading(true);
     // check the string if includes '(any)'
@@ -95,7 +95,6 @@ const HouseContextProvider = ({ children }) => {
           return house.type === property;
         }
       }
-      return [];
     });
 
     setTimeout(() => {
