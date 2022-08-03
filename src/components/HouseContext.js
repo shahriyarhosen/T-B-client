@@ -22,11 +22,10 @@ const HouseContextProvider = ({ children }) => {
     });
     // remove duplication
     const uniqueCountries = ["Location (any)", ...new Set(allCountries)];
-;
     // set Countries
     setCountries(uniqueCountries);
   }, [houses]);
-  
+
   // return all Properties
   useEffect(() => {
     const allProperties = houses.map((house) => {
@@ -34,10 +33,13 @@ const HouseContextProvider = ({ children }) => {
     });
     // remove duplication
     const uniqueProperties = ["Location (any)", ...new Set(allProperties)];
-;
     // set Countries
     setProperties(uniqueProperties);
   }, [houses]);
+
+  const handleClick = () => {
+    console.log("Clicked");
+  };
 
   return (
     <HouseContext.Provider
@@ -55,6 +57,7 @@ const HouseContextProvider = ({ children }) => {
         houses,
         setHouses,
         loading,
+        handleClick
       }}
     >
       {children}
