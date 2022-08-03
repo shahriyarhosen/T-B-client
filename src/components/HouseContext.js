@@ -61,9 +61,13 @@ const HouseContextProvider = ({ children }) => {
       ) {
         return house;
       }
-      // 
+      // all values are default
       if (isDefault(country) && isDefault(property) && isDefault(price)) {
         return house;
+      }
+      // country is not default
+      if (!isDefault(country) && isDefault(property) && isDefault(price)) {
+        return house.country === country;
       }
     });
     
