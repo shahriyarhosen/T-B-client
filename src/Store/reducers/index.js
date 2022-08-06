@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import reducerFunction from "./upDown";
+import reducerFunction from "./housesReducer";
 
 const rootReducer = combineReducers({ reducerFunction });
 
