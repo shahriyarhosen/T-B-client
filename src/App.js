@@ -9,7 +9,7 @@ import Header from "./components/Header";
 // Import Pages
 import Home from "./pages/Home";
 import PropertyDetails from "./pages/PropertyDetails";
-import AllCountry from "./Store/reducers/allCountries";
+import AllProperties from "./Store/reducers/allProperties";
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
         <Route path="/property/:id" element={<PropertyDetails />} />
       </Routes>
       <Footer />
-      <AllCountry></AllCountry>
+      <AllProperties />
     </section>
   );
 };
