@@ -1,5 +1,5 @@
-export const housesAction = () => {
-  return { type: "HOUSES" };
+export const housesAction = (value) => {
+  return { type: "HOUSES", payload: value };
 };
 
 export const countryAction = (value) => {

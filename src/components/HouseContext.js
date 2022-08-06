@@ -37,6 +37,7 @@ const HouseContextProvider = ({ children }) => {
     setProperties(uniqueProperties);
   }, []);
   
+  // Search Function
   const handleClick = () => {
     setLoading(true);
     // check the string if includes '(any)'
