@@ -1,5 +1,5 @@
 // Import data
-import { housesData } from "../data";
+import { housesData } from "../../data";
 
 const initialSate = {
   houses: housesData,

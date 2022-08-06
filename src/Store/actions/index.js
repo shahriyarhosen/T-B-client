@@ -1,28 +1,27 @@
-
 export const housesAction = () => {
   return { type: "HOUSES" };
 };
 
-export const countryAction = () => {
-  return { type: "COUNTRY" };
+export const countryAction = (value) => {
+  return { type: "COUNTRY", payload: value };
 };
 
-export const countriesAction = () => {
-  return { type: "COUNTRIES" };
+export const countriesAction = (value) => {
+  return { type: "COUNTRIES", payload: value };
 };
 
-export const propertyAction = () => {
-  return { type: "PROPERTY" };
+export const propertyAction = (value) => {
+  return { type: "PROPERTY", payload: value };
 };
 
-export const propertiesAction = () => {
-  return { type: "PROPERTIES" };
+export const propertiesAction = (value) => {
+  return { type: "PROPERTIES", payload: value };
 };
 
-export const priceAction = () => {
-  return { type: "PRICE" };
+export const priceAction = (value) => {
+  return { type: "PRICE", payload: value };
 };
 
-export const loadingAction = () => {
-  return { type: "LOADING" };
+export const loadingAction = (value) => {
+  return { type: "LOADING", payload: value };
 };
