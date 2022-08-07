@@ -9,8 +9,17 @@ import { Menu } from "@headlessui/react";
 // import house context
 import { HouseContext } from "./HouseContext";
 
+// react redux
+import { useSelector, useDispatch } from "react-redux";
+import { propertyAction } from "../Store/actions";
+
 const PropertyDropdown = () => {
-  const { property, setProperty, properties } = useContext(HouseContext);
+  const { property, properties } = useSelector(
+    (state) => state.reducerFunction
+  );
+  const dispatch = useDispatch();
+
+  // const { property, setProperty, properties } = useContext(HouseContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,7 +49,8 @@ const PropertyDropdown = () => {
             <Menu.Item
               as="li"
               key={index}
-              onClick={() => setProperty(property)}
+              onClick={() => dispatch(propertyAction(property))}
+              // onClick={() => setProperty(property)}
               className="cursor-pointer hover:text-violet-700 transition"
             >
               {property}

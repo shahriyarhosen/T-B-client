@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { propertiesAction } from "../actions";
 
 const AllProperties = () => {
-  const { houses } = useSelector((state) => state.reducerFunction);
+  const { houses } = useSelector(
+    (state) => state.reducerFunction
+  );
   const dispatch = useDispatch();
 
   // return all Properties
@@ -16,7 +18,6 @@ const AllProperties = () => {
 
     // set Properties
     dispatch(propertiesAction(uniqueProperties));
-    console.log(uniqueProperties)
   }, []);
   return;
 };

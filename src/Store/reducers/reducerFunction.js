@@ -1,5 +1,6 @@
 // Import data
 import { housesData } from "../../data";
+import { SearchFunction } from "./searchFunction";
 
 const initialSate = {
   houses: housesData,
@@ -9,6 +10,7 @@ const initialSate = {
   properties: [],
   price: "Price range (any)",
   loading: false,
+  SearchFunction,
 };
 
 const reducerFunction = (state = initialSate, action) => {
@@ -27,6 +29,8 @@ const reducerFunction = (state = initialSate, action) => {
       return { ...state, price: action.payload };
     case "LOADING":
       return { ...state, loading: action.payload };
+    case "SEARCH":
+      return { ...state, SearchFunction: SearchFunction() };
 
     default:
       return state;

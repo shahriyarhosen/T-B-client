@@ -25,3 +25,7 @@ export const priceAction = (value) => {
 export const loadingAction = (value) => {
   return { type: "LOADING", payload: value };
 };
+
+export const SearchAction = (value) => {
+  return { type: "SEARCH", payload: value };
+};

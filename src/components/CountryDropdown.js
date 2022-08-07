@@ -9,8 +9,19 @@ import { Menu } from "@headlessui/react";
 // import house context
 import { HouseContext } from "./HouseContext";
 
+// react redux
+import { useSelector, useDispatch } from "react-redux";
+import { countryAction } from "../Store/actions";
+
 const CountryDropdown = () => {
-  const { country, setCountry, countries } = useContext(HouseContext);
+  const { country, countries } = useSelector(
+    (state) => state.reducerFunction
+  );
+  const dispatch = useDispatch();
+
+  // const { country, setCountry, countries } = useContext(HouseContext);
+
+  console.log("countryDropdown:", [ country, countries]);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -38,7 +49,8 @@ const CountryDropdown = () => {
             <Menu.Item
               as="li"
               key={index}
-              onClick={() => setCountry(country)}
+              onClick={() => dispatch(countryAction(country))}
+              // onClick={() => setCountry(country)}
               className="cursor-pointer hover:text-violet-700 transition"
             >
               {country}

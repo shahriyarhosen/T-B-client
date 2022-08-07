@@ -11,8 +11,15 @@ import { Menu } from "@headlessui/react";
 // import context
 import { HouseContext } from "./HouseContext";
 
+// react redux
+import { useSelector, useDispatch } from "react-redux";
+import { priceAction } from "../Store/actions";
+
 const PriceRangeDropdown = () => {
-  const { price, setPrice } = useContext(HouseContext);
+  const { price } = useSelector((state) => state.reducerFunction);
+  const dispatch = useDispatch();
+  // const { price, setPrice } = useContext(HouseContext);
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const prices = [
@@ -62,7 +69,8 @@ const PriceRangeDropdown = () => {
           return (
             <Menu.Item
               as="li"
-              onClick={() => setPrice(price.value)}
+              onClick={() => dispatch(priceAction(price.value))}
+              // onClick={() => setPrice(price.value)}
               key={index}
               className="cursor-pointer hover:text-violet-700 transition"
             >

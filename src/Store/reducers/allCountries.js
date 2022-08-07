@@ -15,10 +15,10 @@ const AllCountry = () => {
     // remove duplication
     const uniqueCountries = ["Location (any)", ...new Set(allCountries)];
     // // set Countries
+    console.log("all countries:", uniqueCountries);
     dispatch(countriesAction(uniqueCountries));
   }, []);
 
   return;
 };
-
 export default AllCountry;

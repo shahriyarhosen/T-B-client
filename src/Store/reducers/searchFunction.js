@@ -1,11 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
 import { housesAction, loadingAction } from "../actions";
 
-const SearchFunction = () => {
+export const SearchFunction = () => {
   const { houses, price, country, property } = useSelector(
     (state) => state.reducerFunction
   );
   const dispatch = useDispatch();
+
+  console.log(houses, price, country, property);
 
   dispatch(loadingAction(true));
   // check the string if includes '(any)'
@@ -76,4 +78,4 @@ const SearchFunction = () => {
   }, 1000);
 };
 
-export default SearchFunction;
+//  default SearchFunction;

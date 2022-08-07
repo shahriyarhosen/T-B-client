@@ -10,8 +10,15 @@ import { Link } from "react-router-dom";
 import { ImSpinner2 } from "react-icons/im";
 import House from "./House";
 
+// react redux
+import { useSelector, useDispatch } from "react-redux";
+
 const HouseList = () => {
-  const { houses, loading } = useContext(HouseContext);
+  const { houses, loading } = useSelector(
+    (state) => state.reducerFunction
+  );
+  const dispatch = useDispatch();
+  // const { houses, loading } = useContext(HouseContext);
 
   // If Loading is true
   if (loading) {
