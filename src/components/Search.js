@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 // Import Components
 import CountryDropdown from "./CountryDropdown";
@@ -6,26 +6,21 @@ import PriceRangeDropdown from "./PriceRangeDropdown";
 import PropertyDropdown from "./PropertyDropdown";
 
 // import Icons
-import { RiSearch2Line } from "react-icons/ri"; 
+import { RiSearch2Line } from "react-icons/ri";
 
 // react redux
 import { useSelector, useDispatch } from "react-redux";
 import { housesAction, loadingAction } from "../Store/actions";
 
 const Search = () => {
-  // const { handleClick } = useContext(HouseContext);
-
-  // const { SearchFunction } = useSelector((state) => state.reducerFunction);
-  // const dispatch = useDispatch();
   const { houses, price, country, property } = useSelector(
     (state) => state.reducerFunction
   );
   const dispatch = useDispatch();
 
   const searchFunction = () => {
-    console.log(houses, price, country, property);
-
     dispatch(loadingAction(true));
+
     // check the string if includes '(any)'
     const isDefault = (str) => {
       return str.split(" ").includes("(any)");
